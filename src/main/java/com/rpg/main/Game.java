@@ -2,10 +2,11 @@ package com.rpg.main;
 
 //import com.rpg.main.enums.Menu;
 
-import com.rpg.main.enums.Character;
 import com.rpg.main.enums.Menu;
+import com.rpg.main.state.GameState;
+import com.rpg.main.state.MenuState;
 
-import java.util.Arrays;
+import java.util.Optional;
 
 public class Game {
     private Prompt prompt = new Prompt();
@@ -15,10 +16,10 @@ public class Game {
         context.setGameState(new MenuState());
         prompt.out(Menu.GAME_TITLE.value());
         while(!GameState.GameStateType.EXIT.equals(context.getGameState().getGameStateType())){
-
             prompt.out(context.getGameState().getText());
-            context.getGameState().getActions().stream().forEach(e -> prompt.out(e.getTEXT()));
-            prompt.readString();
+            prompt.outOptions(context.getGameState().getActions());
+            Optional.ofNullable(context.getGameState().getActions().get(prompt.readInt())).ifPresent(e -> e.doAction());
+            prompt.brLn();
         }
         prompt.out("See you.");
         System.exit(0);

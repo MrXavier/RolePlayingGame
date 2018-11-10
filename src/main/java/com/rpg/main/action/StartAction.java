@@ -1,4 +1,8 @@
-package com.rpg.main;
+package com.rpg.main.action;
+
+import com.rpg.main.Context;
+import com.rpg.main.state.GameState;
+import com.rpg.main.state.StartState;
 
 public class StartAction implements Action {
     private final String TEXT = "Start";
@@ -6,6 +10,7 @@ public class StartAction implements Action {
     @Override
     public void doAction(){
         Context.getInstance().getGameState().setGameStateType(GameState.GameStateType.PLACE);
+        Context.getInstance().setGameState(new StartState());
     }
 
     @Override

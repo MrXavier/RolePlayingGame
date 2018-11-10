@@ -1,4 +1,4 @@
-package com.rpg.main;
+package com.rpg.main.action;
 
 public interface Action {
     public void doAction();
