@@ -39,12 +39,13 @@ public class Game{
                 prompt.out("Wolf attaked! You received " + damage + " damage.");
             } else if(context.getPlayerCharacter().getHp() <= 0) {
                 prompt.out("You were defeated.\n");
-                Context.getInstance().setGameState(new MenuState());
-                Context.getInstance().setEnemy(null);
+                context.getGameState().setGameStateType(GameState.GameStateType.EXIT); //TODO: back to menu
             } else {
-                prompt.out("Congratulations! You defeated the wolf.\n");
-                Context.getInstance().setGameState(new GravediggerState());
-                Context.getInstance().setEnemy(null);
+                prompt.out("Congratulations! You defeated the wolf. You received "+context.getEnemy().getExperience()+
+                        "of experience. Character experience" + context.getPlayerCharacter().getExperience() + "\n");
+                context.getPlayerCharacter().increaseExperience(context.getEnemy().getExperience());
+                context.setGameState(new GravediggerState());
+                context.setEnemy(null);
             }
         } else {
             throw new Exception("Enemy not instaniated.");

@@ -9,6 +9,6 @@ public class CharacterFactory {
         return new Ranger(0,  50, 40, 20);
     }
     public static Character buildWolf(){
-        return new Wolf(0,  80, 0, 10);
+        return new Wolf(10,  80, 0, 15);
     }
 }
