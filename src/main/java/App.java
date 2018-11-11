@@ -5,6 +5,11 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Game game = new Game();
-        game.run();
+        try {
+            game.run();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

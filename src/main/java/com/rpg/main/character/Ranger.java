@@ -1,21 +1,21 @@
 package com.rpg.main.character;
 
 import com.rpg.main.action.Action;
-import com.rpg.main.action.battle.FighterAbilityAction;
+import com.rpg.main.action.battle.RangerAbilityAction;
 
-public class Fighter implements Character {
+public class Ranger implements Character {
     private int experience;
     private int hp;
     private int mp;
     private int attackPower;
     private Action ability;
 
-    public Fighter(int experience, int hp, int mp, int attackPower) {
+    public Ranger(int experience, int hp, int mp, int attackPower) {
         this.experience = experience;
         this.hp = hp;
         this.mp = mp;
         this.attackPower = attackPower;
-        this.ability = new FighterAbilityAction();
+        this.ability = new RangerAbilityAction();
     }
 
     @Override
@@ -41,8 +41,8 @@ public class Fighter implements Character {
     @Override
     public void setHp(int hp) {
         this.hp = hp;
-        if(this.hp > 100) {
-            this.hp = 100;
+        if(this.hp > 50) {
+            this.hp = 50;
         }
     }
 

@@ -9,7 +9,11 @@ public class ContinueAction implements Action {
 
     @Override
     public void doAction(){
-        Context.getInstance().getGameState().setGameStateType(Context.getInstance().getPreviousGameState().getGameStateType());
+        if(Context.getInstance().getPreviousGameState() != null) {
+            Context.getInstance().getGameState().setGameStateType(Context.getInstance().getPreviousGameState().getGameStateType());
+        } else {
+
+        }
         Context.getInstance().setGameState(Context.getInstance().getPreviousGameState());
     }
 

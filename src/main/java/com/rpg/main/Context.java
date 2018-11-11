@@ -1,16 +1,14 @@
 package com.rpg.main;
 
+import com.rpg.main.character.Character;
 import com.rpg.main.state.GameState;
 
 //Singleton
 public class Context {
+    Character playerCharacter;
+    Character enemy;
     GameState gameState;
     GameState previousGameState;
-//    Character playerChar;
-//    Place place;
-//    Place previousPlace;
-//    List<PlaceEnum> remainPlaces;
-//    Battle battle;
 
     private static Context context = new Context(null);
 
@@ -37,5 +35,21 @@ public class Context {
 
     public void setPreviousGameState(GameState previousGameState) {
         this.previousGameState = previousGameState;
+    }
+
+    public Character getPlayerCharacter() {
+        return playerCharacter;
+    }
+
+    public void setPlayerCharacter(Character playerCharacter) {
+        this.playerCharacter = playerCharacter;
+    }
+
+    public Character getEnemy() {
+        return enemy;
+    }
+
+    public void setEnemy(Character enemy) {
+        this.enemy = enemy;
     }
 }

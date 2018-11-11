@@ -1,14 +1,23 @@
 package com.rpg.main.state;
 
-public class BattleWolfState extends GameState {
-    //Character wolf;
+import com.rpg.main.Context;
+import com.rpg.main.action.battle.AttackAction;
+import com.rpg.main.character.CharacterFactory;
 
+public class BattleWolfState extends GameState {
     public BattleWolfState() {
         super.setGameStateType(GameStateType.BATTLE);
-        super.setName("Howls");
-        super.setText("You find a wolf eating a body." +
-                "\nWhat do you do?");
-//        super.addAction(1, new BattleHowl());
-//        super.addAction(2, new ExitAction());
+        super.setName("BattleWolf");
+        if(Context.getInstance().getEnemy() == null) {
+            Context.getInstance().setEnemy(CharacterFactory.buildWolf());
+        }
+        String text = new StringBuilder()
+                .append("Wolf - ").append("hp:").append(Context.getInstance().getEnemy().getHp())
+                .append("\nPlayer - ").append("hp:").append(Context.getInstance().getPlayerCharacter().getHp())
+                .toString();
+        super.setText(text);
+        super.addAction(1, new AttackAction());
+        super.addAction(2, Context.getInstance().getPlayerCharacter().getAbility());
+
     }
 }
