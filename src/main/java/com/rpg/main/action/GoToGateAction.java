@@ -1,19 +1,17 @@
 package com.rpg.main.action;
 
 import com.rpg.main.Context;
+import com.rpg.main.state.ExitGateState;
 import com.rpg.main.state.GameState;
-import com.rpg.main.state.GravediggerState;
 import com.rpg.main.state.HowlsState;
 
-public class GravediggerAction implements Action {
-    private final String TEXT = "Search the body.";
+public class GoToGateAction implements Action {
+    private final String TEXT = "Go to cemitery exit gate.";
 
     @Override
     public void doAction(){
-        System.out.println("You find a key.");
-        Context.getInstance().setHasKey(true);
         Context.getInstance().getGameState().setGameStateType(GameState.GameStateType.PLACE);
-        Context.getInstance().setGameState(new GravediggerState());
+        Context.getInstance().setGameState(new ExitGateState());
     }
 
     @Override

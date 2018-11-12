@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class Context implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    private boolean hasKey = false;
     private Character playerCharacter;
     private Character enemy;
     private GameState gameState;
@@ -55,5 +56,13 @@ public class Context implements Serializable {
 
     public void setEnemy(Character enemy) {
         this.enemy = enemy;
+    }
+
+    public boolean isHasKey() {
+        return hasKey;
+    }
+
+    public void setHasKey(boolean hasKey) {
+        this.hasKey = hasKey;
     }
 }

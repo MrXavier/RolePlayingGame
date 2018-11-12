@@ -1,5 +1,7 @@
 package com.rpg.main.state;
 
+import com.rpg.main.action.ExitCemiteryAction;
+import com.rpg.main.action.GoToGateAction;
 import com.rpg.main.action.GoToHowlsAction;
 
 public class StartState extends GameState {
@@ -9,6 +11,6 @@ public class StartState extends GameState {
         super.setText("You wake up in a cemitery and look around. You see a church, a gate and hear howls near some trees." +
                 "\nWhat do you do?");
         super.addAction(1, new GoToHowlsAction());
-//        super.addAction(2, new ExitAction());
+        super.addAction(2, new GoToGateAction());
     }
 }
