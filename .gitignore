@@ -1,6 +1,7 @@
 #Intelij
 .idea/
 RolePlayingGame.iml
+out/
 
 # Gradle
 build/

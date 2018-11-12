@@ -4,6 +4,8 @@ import com.rpg.main.action.Action;
 import com.rpg.main.action.battle.RangerAbilityAction;
 
 public class Ranger implements Character {
+    private static final long serialVersionUID = 1L;
+
     private int experience;
     private int hp;
     private int mp;

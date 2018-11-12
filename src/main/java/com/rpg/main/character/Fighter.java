@@ -3,7 +3,11 @@ package com.rpg.main.character;
 import com.rpg.main.action.Action;
 import com.rpg.main.action.battle.FighterAbilityAction;
 
+import java.io.Serializable;
+
 public class Fighter implements Character {
+    private static final long serialVersionUID = 1L;
+    
     private int experience;
     private int hp;
     private int mp;

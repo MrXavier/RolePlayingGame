@@ -2,7 +2,9 @@ package com.rpg.main.character;
 
 import com.rpg.main.action.Action;
 
-public interface Character {
+import java.io.Serializable;
+
+public interface Character extends Serializable {
     public int getExperience(); //TODO: Use experience to implement level progress in the future
     public void setExperience(int value);
     public void increaseExperience(int value);

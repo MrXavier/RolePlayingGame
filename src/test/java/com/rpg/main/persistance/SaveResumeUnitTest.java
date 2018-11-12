@@ -13,9 +13,9 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.*;
 
 import java.io.File;
-import java.io.FileOutputStream;
 
 public class SaveResumeUnitTest {
     @Before
@@ -25,8 +25,8 @@ public class SaveResumeUnitTest {
 
     @Test
     public void saveTest(){
-        Persistance.save();
-        File file = new File(Persistance.getPath());
+        Persistence.save();
+        File file = new File(Persistence.PATH);
         file.exists();
     }
 
@@ -38,9 +38,9 @@ public class SaveResumeUnitTest {
         Persistence.resume();
 
         assertThat(Context.getInstance().getEnemy().getClass(), equalTo(Wolf.class));
-        assertThat(Context.getInstance().getGameState(), equalTo(BattleWolfState.class));
-        assertThat(Context.getInstance().getPlayerCharacter(), equalTo(Fighter.class));
-        assertThat(Context.getInstance().getPreviousGameState(), equalTo(HowlsState.class));
+        assertTrue(Context.getInstance().getGameState() instanceof BattleWolfState);
+        assertTrue(Context.getInstance().getPlayerCharacter() instanceof Fighter);
+        assertTrue(Context.getInstance().getPreviousGameState() instanceof HowlsState);
     }
 
     private void buildContext(){
@@ -51,10 +51,10 @@ public class SaveResumeUnitTest {
 
         Context.getInstance().setEnemy(enemy);
         Context.getInstance().setPlayerCharacter(playerCharacter);
-        Context.getInstance().setPreviousGameState(previousGameState);
 
         GameState state = new BattleWolfState();
         Context.getInstance().setGameState(state);
+        Context.getInstance().setPreviousGameState(previousGameState);
     }
 
     private void resetContext(){

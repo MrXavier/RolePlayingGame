@@ -4,9 +4,12 @@ import com.rpg.main.Context;
 import com.rpg.main.action.Action;
 import com.rpg.main.action.MenuAction;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class GameState {
+public class GameState implements Serializable {
+    private static final long serialVersionUID = 1952358793540268673L;
+
     private GameStateType gameStateType;
     private String name;
     private String text;
@@ -56,7 +59,7 @@ public class GameState {
         actions.put(i, action);
     }
 
-    public enum GameStateType {
+    public enum GameStateType  {
         MENU(),
         PLACE(),
         BATTLE(),

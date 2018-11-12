@@ -3,12 +3,16 @@ package com.rpg.main;
 import com.rpg.main.character.Character;
 import com.rpg.main.state.GameState;
 
+import java.io.Serializable;
+
 //Singleton
-public class Context {
-    Character playerCharacter;
-    Character enemy;
-    GameState gameState;
-    GameState previousGameState;
+public class Context implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private Character playerCharacter;
+    private Character enemy;
+    private GameState gameState;
+    private GameState previousGameState;
 
     private static Context context = new Context(null);
 
