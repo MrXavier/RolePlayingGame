@@ -4,6 +4,7 @@ import com.rpg.main.Context;
 import com.rpg.main.character.Character;
 import com.rpg.main.character.CharacterFactory;
 import com.rpg.main.state.GameState;
+import com.rpg.main.state.GameStateFactory;
 import com.rpg.main.state.StartState;
 
 public class ChooseFighterAction implements Action {
@@ -14,7 +15,7 @@ public class ChooseFighterAction implements Action {
         Character character = CharacterFactory.buildFighter();
         Context.getInstance().setPlayerCharacter(character);
         Context.getInstance().getGameState().setGameStateType(GameState.GameStateType.PLACE);
-        Context.getInstance().setGameState(new StartState());
+        Context.getInstance().setGameState(GameStateFactory.getInstance().buildStartState());
     }
 
     @Override

@@ -21,7 +21,7 @@ public class Context implements Serializable {
         return context;
     }
 
-    public Context(GameState gameState) {
+    private Context(GameState gameState) {
         this.gameState = gameState;
     }
 

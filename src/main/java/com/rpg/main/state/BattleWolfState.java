@@ -1,6 +1,7 @@
 package com.rpg.main.state;
 
 import com.rpg.main.Context;
+import com.rpg.main.action.ActionFactory;
 import com.rpg.main.action.battle.AttackAction;
 import com.rpg.main.character.CharacterFactory;
 
@@ -16,7 +17,7 @@ public class BattleWolfState extends GameState {
                 .append("\nPlayer - ").append("hp:").append(Context.getInstance().getPlayerCharacter().getHp())
                 .toString();
         super.setText(text);
-        super.addAction(1, new AttackAction());
+        super.addAction(1, ActionFactory.getInstance().buildAttackAction());
         super.addAction(2, Context.getInstance().getPlayerCharacter().getAbility());
 
     }

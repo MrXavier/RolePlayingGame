@@ -2,6 +2,7 @@ package com.rpg.main.action;
 
 import com.rpg.main.Context;
 import com.rpg.main.state.GameState;
+import com.rpg.main.state.GameStateFactory;
 import com.rpg.main.state.HowlsState;
 
 public class GoToHowlsAction implements Action {
@@ -10,7 +11,7 @@ public class GoToHowlsAction implements Action {
     @Override
     public void doAction(){
         Context.getInstance().getGameState().setGameStateType(GameState.GameStateType.PLACE);
-        Context.getInstance().setGameState(new HowlsState());
+        Context.getInstance().setGameState(GameStateFactory.getInstance().buildHowlsState());
     }
 
     @Override
