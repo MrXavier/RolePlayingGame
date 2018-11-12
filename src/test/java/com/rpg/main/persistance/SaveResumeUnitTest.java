@@ -25,17 +25,17 @@ public class SaveResumeUnitTest {
 
     @Test
     public void saveTest(){
-        Persistence.save();
-        File file = new File(Persistence.PATH);
+        LocalFilePersistence.save();
+        File file = new File(LocalFilePersistence.PATH);
         file.exists();
     }
 
     @Test
     public void resumeTest(){
         buildContext();
-        Persistence.save();
+        LocalFilePersistence.save();
         resetContext();
-        Persistence.resume();
+        LocalFilePersistence.resume();
 
         assertThat(Context.getInstance().getEnemy().getClass(), equalTo(Wolf.class));
         assertTrue(Context.getInstance().getGameState() instanceof BattleWolfState);

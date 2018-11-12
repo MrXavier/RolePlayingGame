@@ -1,16 +1,19 @@
 package com.rpg.main.action;
 
+import com.rpg.main.Context;
+import com.rpg.main.persistance.LocalFilePersistence;
+
 public class LoadAction implements Action {
-    private final String TEXT = "Save";
+    private final String TEXT = "Resume";
 
     @Override
     public void doAction(){
-//        if(Context.getInstance().getPreviousGameState() != null) {
-//            Context.getInstance().getGameState().setGameStateType(Context.getInstance().getPreviousGameState().getGameStateType());
-//        } else {
-//
-//        }
-//        Context.getInstance().setGameState(Context.getInstance().getPreviousGameState());
+        if(LocalFilePersistence.resume()){
+            System.out.println("Game resumed.");
+            Context.getInstance().setGameState(Context.getInstance().getPreviousGameState());
+        } else {
+            System.out.println("Failed to resume game.");
+        }
     }
 
     @Override

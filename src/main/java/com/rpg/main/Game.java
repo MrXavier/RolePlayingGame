@@ -41,9 +41,9 @@ public class Game{
                 prompt.out("You were defeated.\n");
                 context.getGameState().setGameStateType(GameState.GameStateType.EXIT); //TODO: back to menu
             } else {
+                context.getPlayerCharacter().increaseExperience(context.getEnemy().getExperience());
                 prompt.out("Congratulations! You defeated the wolf. You received "+context.getEnemy().getExperience()+
                         "of experience. Character experience" + context.getPlayerCharacter().getExperience() + "\n");
-                context.getPlayerCharacter().increaseExperience(context.getEnemy().getExperience());
                 context.setGameState(new GravediggerState());
                 context.setEnemy(null);
             }

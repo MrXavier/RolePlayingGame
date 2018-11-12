@@ -4,8 +4,8 @@ import com.rpg.main.Context;
 
 import java.io.*;
 
-public final class Persistence {
-    public static final String PATH = Persistence.class.getClassLoader().getResource("saved_context.obj").getPath();
+public final class LocalFilePersistence {
+    public static final String PATH = LocalFilePersistence.class.getClassLoader().getResource("saved_context.obj").getPath();
 
     public static boolean save() {
         try {
@@ -19,7 +19,7 @@ public final class Persistence {
             ex.printStackTrace();
             return false;
         }
-        return true;
+        return new File(PATH).exists();
     }
 
     public static boolean resume(){
