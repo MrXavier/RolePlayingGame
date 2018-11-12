@@ -33,7 +33,7 @@ public class Game{
 
     private void enemyTurn() throws Exception{
         if(context.getEnemy() != null){
-            if(context.getEnemy().getHp() > 0) {
+            if(context.getEnemy().getHp() > 0 && context.getPlayerCharacter().getHp() > 0) {
                 int damage = context.getEnemy().getAttackPower();
                 context.getPlayerCharacter().decreaseHp(damage);
                 prompt.out("Wolf attaked! You received " + damage + " damage.");

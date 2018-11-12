@@ -31,4 +31,4 @@ Have the code for save and resume the game in a local file. The local file is th
 * Implement state graph
 * Use experience to build level progression
 * Fix bugs
-
+* Improve the battle feature using diferent java classes
