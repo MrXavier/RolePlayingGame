@@ -19,7 +19,7 @@ public class MenuStateTest {
         context.setGameState(new MenuState());
 
         MenuState state = new MenuState();
-        state.getActions().get(5).doAction();
+        state.getActions().get(4).doAction();
 
         assertNotNull("gameState is null", context.getGameState());
         assertTrue("gameState is not Exit",
