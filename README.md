@@ -22,7 +22,7 @@ It holds the data for the current game. Singleton class accessed by the whole co
 ### GameState
 It holds the state of the game with the text to be shown and the available options
 ### Character
-Interface of the player character
+Interface of the player character. Create character using CharacterFactory pattern
 ### LocalFilePersistance
 Have the code for save and resume the game in a local file. The local file is the Context object serialized
 
